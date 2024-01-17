@@ -7,7 +7,7 @@
 
 body {
     background-color: hsl(47, 88%, 63%);
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
