@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(275, 100%, 97%);
+  background-image: url('../assets/images/background-pattern-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: 25dvh contain;
+  background-position: top;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  width: 500px;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  display: flex;
+}
+.card-title h1{
+  margin-left: 15px;
+}
+.card-item-content{
+  color: hsl(292, 16%, 66%);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 5px;
+}
+.card-item .hide {
+  display: none;
+}
+.card-item .show {
+  display: block;
+}
+/* Add a line but not on the last item */
+.card-item:not(:last-child):after { 
+  content: "";
+  display: block;
+  border-bottom: 1px solid hsl(275, 100%, 97%);
+  margin-top: 10px;
+}
+
+.card-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.card-item-header h3{
+  text-align: left;
+}
+.card-item-header img{
+  margin-left: 10px;
+}
+.card-item-header h3:hover {
+  color: rgb(172, 54, 232)
+}
+
+/* Attribution */
+.attribution {
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 640px) {
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    background-image: url('../assets/images/background-pattern-mobile.svg');
+  }
+}
