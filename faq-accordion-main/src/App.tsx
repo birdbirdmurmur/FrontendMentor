@@ -36,17 +36,19 @@ const CardItem = ({ title, content }: CardProps) => {
   };
 
   useEffect(() => {
-    const handleKeyDownEvent = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+    const handleKeyDownEvent: EventListener = (event) => {
+      const keyboardEvent = event as unknown as KeyboardEvent; // how to fix it?
+
+      if (keyboardEvent.key === 'ArrowUp' || keyboardEvent.key === 'ArrowDown') {
         event.preventDefault();
         const cardItems = document.querySelectorAll<HTMLDivElement>('.card-item');
         const currentIndex = Array.from(cardItems).findIndex((item) => item === event.target);
-        const nextIndex = event.key === 'ArrowUp' ? currentIndex - 1 : currentIndex + 1;
+        const nextIndex = keyboardEvent.key === 'ArrowUp' ? currentIndex - 1 : currentIndex + 1;
         if (nextIndex >= 0 && nextIndex < cardItems.length) {
           cardItems[nextIndex].focus();
         }
       }
-    }
+    };
 
     document.addEventListener('keydown', handleKeyDownEvent);
     return () => {
