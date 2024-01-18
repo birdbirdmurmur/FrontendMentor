@@ -1,5 +1,8 @@
 import { useState, useEffect, KeyboardEvent } from 'react';
 import './App.css'
+import iconMinus from '/assets/images/icon-minus.svg';
+import iconPlus from '/assets/images/icon-plus.svg';
+import iconStar from '/assets/images/icon-star.svg';
 
 interface CardProps {
   title: string;
@@ -60,7 +63,7 @@ const CardItem = ({ title, content }: CardProps) => {
     <div className='card-item' tabIndex={0} onKeyDown={handleKeyPress}>
       <button className='card-item-header' onClick={toggleCard}>
         <h3>{title}</h3>
-        <img src={isOpen ? '../assets/images/icon-minus.svg' : '../assets/images/icon-plus.svg'} alt='button' />
+        <img src={isOpen ? iconMinus : iconPlus} alt='button' />
       </button>
       <p className={`card-item-content ${isOpen ? 'show' : 'hide'}`}>{content}</p>
     </div>
@@ -72,7 +75,7 @@ const App = () => {
     <>
       <div className='card'>
         <div className="card-title">
-          <img src="./assets/images/icon-star.svg" alt="star" />
+          <img src={iconStar} alt="star" />
           <h1>FAQs</h1>
         </div>
 
